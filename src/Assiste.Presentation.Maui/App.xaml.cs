@@ -2,16 +2,16 @@ namespace Assiste.Presentation.Maui;
 
 public partial class App : Microsoft.Maui.Controls.Application
 {
-    private readonly AppShell appShell;
+    private readonly IServiceProvider serviceProvider;
 
-    public App(AppShell appShell)
+    public App(IServiceProvider serviceProvider)
     {
         InitializeComponent();
-        this.appShell = appShell;
+        this.serviceProvider = serviceProvider;
     }
 
     protected override Microsoft.Maui.Controls.Window CreateWindow(Microsoft.Maui.IActivationState? activationState)
     {
-        return new Microsoft.Maui.Controls.Window(appShell);
+        return new Microsoft.Maui.Controls.Window(serviceProvider.GetRequiredService<AppShell>());
     }
 }

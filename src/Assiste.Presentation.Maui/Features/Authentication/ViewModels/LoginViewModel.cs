@@ -1,3 +1,4 @@
+using Assiste.Application.Abstractions.Authentication;
 using Assiste.Presentation.Maui.Common.Navigation;
 using Assiste.Presentation.Maui.Common.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -7,12 +8,16 @@ namespace Assiste.Presentation.Maui.Features.Authentication.ViewModels;
 
 public partial class LoginViewModel : ViewModelBase
 {
+    private readonly IAuthenticationService authenticationService;
     private readonly IAppNavigator navigator;
 
-    public LoginViewModel(IAppNavigator navigator)
+    public LoginViewModel(IAppNavigator navigator, IAuthenticationService authenticationService)
     {
         this.navigator = navigator;
+        this.authenticationService = authenticationService;
         Title = "Acceso";
+
+        Reset();
     }
 
     [ObservableProperty]
@@ -31,8 +36,8 @@ public partial class LoginViewModel : ViewModelBase
 
     public void Reset()
     {
-        Email = string.Empty;
-        Password = string.Empty;
+        Email = authenticationService.DemoCredentials.Email;
+        Password = authenticationService.DemoCredentials.Password;
         ValidationMessage = string.Empty;
         SignInCommand.NotifyCanExecuteChanged();
     }
@@ -73,6 +78,14 @@ public partial class LoginViewModel : ViewModelBase
 
         try
         {
+            var isAuthenticated = await authenticationService.SignInAsync(Email, Password);
+
+            if (!isAuthenticated)
+            {
+                ValidationMessage = "Credenciales incorrectas. Usa el acceso demo configurado.";
+                return;
+            }
+
             await navigator.ShowMainShellAsync();
         }
         finally
