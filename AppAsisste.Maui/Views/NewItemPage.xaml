@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppAsisste.Maui.ViewModels"
+             x:Class="AppAsisste.Maui.Views.NewItemPage"
+             x:DataType="viewModels:NewItemViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="24" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="18">
+            <Label Text="Crear elemento" FontSize="28" FontAttributes="Bold" />
+            <Entry Grid.Row="1"
+                   Text="{Binding TitleInput}"
+                   Placeholder="Título" />
+            <Editor Grid.Row="2"
+                    Text="{Binding DescriptionInput}"
+                    Placeholder="Descripción"
+                    MinimumHeightRequest="160" />
+            <Label Grid.Row="3"
+                   Text="{Binding ValidationMessage}"
+                   TextColor="{StaticResource Danger}"
+                   IsVisible="{Binding HasValidationMessage}" />
+            <Grid Grid.Row="4" ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="Cancelar"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="{StaticResource SurfaceAlt}"
+                        TextColor="{StaticResource TextPrimary}"
+                        BorderColor="{StaticResource Stroke}"
+                        BorderWidth="1" />
+                <Button Grid.Column="1"
+                        Text="Guardar"
+                        Command="{Binding SaveCommand}" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

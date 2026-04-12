@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppAsisste.Maui.ViewModels"
+             x:Class="AppAsisste.Maui.Views.ItemDetailPage"
+             x:DataType="viewModels:ItemDetailViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="24" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="18">
+            <Border Padding="24">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <Label Text="{Binding Heading}" FontSize="30" FontAttributes="Bold" />
+            </Border>
+
+            <Grid Grid.Row="1" ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                <Label Text="Referencia" Style="{StaticResource CaptionLabelStyle}" />
+                <Label Grid.Column="1"
+                       Text="{Binding Identifier}"
+                       Style="{StaticResource BodySecondaryLabelStyle}" />
+            </Grid>
+
+            <Label Grid.Row="2" Text="Descripción" Style="{StaticResource SectionTitleStyle}" />
+
+            <Border Grid.Row="3" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                <Label Text="{Binding Description}" LineHeight="1.35" />
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>
