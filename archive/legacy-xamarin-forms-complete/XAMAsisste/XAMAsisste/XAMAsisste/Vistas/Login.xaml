@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Visual="Material"
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.TabBarIsVisible="False"
+             Shell.PresentationMode="ModalAnimated"
+            
+             x:Class="XAMAsisste.Vistas.Login">
+    <ContentPage.Content>
+        <StackLayout Spacing="16" Margin="16,32">
+           
+            <Frame>
+                <Label Text="Bienvenido a Asisste" HorizontalTextAlignment="Center" FontSize="Title" />
+            </Frame>
+            <Entry  Text="{Binding NombreUsuario}"
+                   Placeholder="Correo electrónico" />
+            <Entry Text="{Binding Clave}"
+                   Placeholder="Contraseña"
+                   IsPassword="True" />
+            <Button Margin="0,16,0,0" Text="Iniciar sesión" 
+                HorizontalOptions="Center"
+                    Command="{Binding IniciaSesion}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

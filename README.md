@@ -1,170 +1,99 @@
-# Assiste
+# Asisste
 
-Aplicación móvil migrada a .NET MAUI desde Xamarin.Forms.
+Monorepo base de Asisste reorganizado con una estructura alineada a Microsoft Architecture Guides.
 
-Este repositorio conserva dos líneas de trabajo:
+## Solución activa
 
-- La aplicación activa en .NET MAUI dentro de src.
-- El código Xamarin legado archivado en archive/xamarin-legacy como referencia histórica.
+- Solución canónica: `Asisste.sln`
+- App móvil activa: `src/4-Presentation/Asisste.MAUI`
+- Documentación de brechas y migración: `docs/`
 
-## Estado actual
+## Estructura actual
 
-La solución activa es Assiste.sln y la interfaz principal vive en src/Assiste.Presentation.Maui.
+```text
+src/
+├── 1-Core/
+│   └── Asisste.Domain
+├── 2-Application/
+│   └── Asisste.Services
+├── 3-Infrastructure/
+│   └── Asisste.Data
+└── 4-Presentation/
+	├── Asisste.API
+	├── Asisste.MAUI
+	└── Asisste.Web
 
-La app ya está operativa sobre Android con:
+tests/
+└── Asisste.Domain.Tests
 
-- .NET 10
-- .NET MAUI Single Project
-- Shell para navegación
-- Inyección de dependencias con Microsoft.Extensions.DependencyInjection
-- CommunityToolkit.Mvvm para viewmodels y comandos
-- Autenticación demo
-- Repositorio en memoria para elementos de ejemplo
-
-## Estructura de la solución
-
-- src/Assiste.Domain: entidades y modelo de dominio.
-- src/Assiste.Application: contratos y abstracciones de aplicación.
-- src/Assiste.Infrastructure: implementaciones concretas de servicios, autenticación y persistencia temporal.
-- src/Assiste.Presentation.Maui: aplicación MAUI, navegación, páginas, recursos y viewmodels.
-- archive/xamarin-legacy: snapshot del proyecto Xamarin original, fuera de la solución activa.
-
-## Funcionalidad disponible
-
-### Acceso
-
-La pantalla de inicio de sesión usa autenticación demo para facilitar pruebas locales.
-
-Credenciales actuales:
-
-- Usuario: demo@assiste.app
-- Contraseña: Assiste123!
-
-El login está implementado con un servicio demo registrado en infraestructura, por lo que hoy no depende de backend ni base de datos.
-
-### Navegación
-
-La aplicación usa Shell y habilita el menú principal después del acceso. Las secciones activas son:
-
-- Acceso
-- Explorar
-- Ubicación
-- Acerca de
-
-### Explorar
-
-La pantalla Explorar muestra una lista de elementos de ejemplo y permite:
-
-- Ver detalle de un elemento
-- Crear un nuevo elemento
-
-Actualmente estos datos se guardan en memoria durante la ejecución de la app. Al cerrar la aplicación se pierden.
-
-### Ubicación
-
-La pantalla de ubicación usa APIs del dispositivo para obtener coordenadas actuales. No requiere base de datos.
-
-### Acerca de
-
-La pantalla informativa resume la migración y enlaza a documentación de .NET MAUI.
-
-## Persistencia actual
-
-La solución no usa base de datos real por ahora.
-
-El módulo de elementos usa un repositorio en memoria en:
-
-- src/Assiste.Infrastructure/Data/InMemoryItemRepository.cs
-
-Esto es suficiente para demostrar navegación, formularios, detalle y flujo general, pero no para un escenario productivo.
-
-Si se requiere persistencia real, los siguientes caminos naturales son:
-
-- SQLite local dentro de la app
-- API remota con base de datos en servidor
-- Sincronización híbrida local/remota
-
-## Requisitos de entorno
-
-Para compilar y ejecutar la app Android se necesita:
-
-- .NET SDK 10
-- Workload maui-android
-- Android SDK
-- Un emulador o dispositivo Android disponible
-
-Target framework actual:
-
-- net10.0-android
-
-## Cómo ejecutar la aplicación
-
-### Compilar la solución
-
-```powershell
-dotnet build Assiste.sln
+docs/
+├── monorepo-structure.md
+└── legacy-gap-analysis.md
 ```
 
-### Ejecutar la app MAUI sobre Android
+## Estado de transición
+
+La organización física y de solución ya quedó preparada para la migración tecnológica, pero todavía hay componentes transitorios:
+
+- `Asisste.MAUI` es la app activa y concentra la UI moderna.
+- `Asisste.Data` aún contiene servicios demo y wrappers del dispositivo heredados de la fase MAUI inicial; en la siguiente fase debe separarse hacia API + EF Core 10.
+- `Asisste.API` y `Asisste.Web` quedaron creados como placeholders documentados para la migración posterior.
+- La comparación entre el MAUI actual y los legados funcionales ya está documentada en `docs/legacy-gap-analysis.md`.
+
+## Legado archivado
+
+Todo el material histórico salió del nivel raíz y quedó agrupado en `archive/`:
+
+- `archive/legacy-xamarin-forms-complete`
+- `archive/legacy-wcf-backend`
+- `archive/legacy-aspnet-mvc-monolith`
+
+Se conservaron solo las líneas históricas que sí aportan lógica útil para la migración. Las variantes Xamarin incompletas se descartaron porque eran snapshots/template sin valor funcional adicional frente al Xamarin legacy completo.
+
+## Capacidades vigentes en la base moderna
+
+- Login demo en MAUI
+- Navegación con Shell
+- Pantallas de Items, Location y About
+- Inyección de dependencias
+- Repositorio en memoria para demo
+
+## Brechas ya identificadas
+
+Las capacidades críticas que existen en legado y todavía no están en la base moderna incluyen:
+
+- Marcación de asistencia real
+- Gestión de faltas
+- Usuarios reales y sesión persistida
+- Reportes y listados
+- Catálogos maestros: cargo, horario, jornada, tipo documento, género, ubicación
+- SQLite local funcional o persistencia real
+- API/backend moderno equivalente al WCF y al MVC legado
+
+## Credenciales demo actuales
+
+- Usuario: `demo@asisste.app`
+- Contraseña: `Asisste123!`
+
+## Build rápido
+
+Compilar la solución:
 
 ```powershell
-dotnet build .\src\Assiste.Presentation.Maui\Assiste.Presentation.Maui.csproj -t:Run -f net10.0-android
+dotnet build Asisste.sln
 ```
 
-Si el SDK de Android no está en el PATH o la resolución automática falla, puedes indicar la ruta explícitamente:
+Compilar la app MAUI Android:
 
 ```powershell
-dotnet build .\src\Assiste.Presentation.Maui\Assiste.Presentation.Maui.csproj -t:Run -f net10.0-android -p:AndroidSdkDirectory="$env:LOCALAPPDATA\Android\Sdk"
+dotnet build .\src\4-Presentation\Asisste.MAUI\Asisste.MAUI.csproj -t:Run -f net10.0-android
 ```
 
-## Arquitectura de presentación
+## Documentación clave
 
-La app sigue una separación simple por capas:
+- `docs/monorepo-structure.md`: mapa de carpetas, proyectos y reglas de transición.
+- `docs/legacy-gap-analysis.md`: comparación funcional entre MAUI actual, Xamarin completo, Web MVC y WCF.
 
-- Domain: entidades puras
-- Application: interfaces y contratos
-- Infrastructure: implementaciones de servicios
-- Presentation: UI, navegación y estado de pantalla
+## Nota operativa
 
-Dentro de Presentation, la organización es por features:
-
-- Features/Authentication
-- Features/Items
-- Features/Location
-- Features/About
-- Common/Navigation
-- Common/ViewModels
-
-## Decisiones actuales
-
-### Autenticación
-
-La autenticación actual es local y de demostración. Se añadió para facilitar la validación del flujo completo de la app sin depender de un backend externo.
-
-### Base de datos
-
-No existe una base de datos real integrada todavía. Esto es intencional en la etapa actual de la migración para priorizar:
-
-- estructura de solución
-- navegación
-- inyección de dependencias
-- bindings compilados
-- validación visual y funcional en Android
-
-### Legacy archivado
-
-El contenido de archive/xamarin-legacy se conserva solo para auditoría, comparación o recuperación puntual de código. No forma parte del build activo.
-
-## Siguientes pasos sugeridos
-
-- Reemplazar la autenticación demo por autenticación real
-- Sustituir el repositorio en memoria por SQLite o una API
-- Persistir sesión de usuario
-- Agregar pruebas y validaciones de negocio
-- Ampliar el módulo de items con edición y eliminación desde UI
-
-## Notas de mantenimiento
-
-- Evita subir bin y obj al repositorio.
-- El proyecto activo es el contenido bajo src; archive solo documenta el legado.
-- Si cambias el flujo de acceso o persistencia, actualiza este README junto con la implementación.
+La migración tecnológica todavía no empezó. Este cambio deja listo el repo para arrancar la siguiente fase sobre una estructura consistente de monorepo.

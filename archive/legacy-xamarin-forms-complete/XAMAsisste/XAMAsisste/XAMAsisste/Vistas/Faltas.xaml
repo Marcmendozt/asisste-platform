@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAMAsisste.Vistas.Faltas">
+    <ContentPage.Content>
+        <StackLayout Spacing="16" Margin="16,32">
+
+            <Frame>
+                <Label Text="Presentar falta" HorizontalTextAlignment="Center" FontSize="Title" />
+            </Frame>
+            <Entry  Text="{Binding NombreArchivo}" Placeholder="Nombre de Archivo" IsEnabled="False" />
+            <Button Margin="0,16,0,0" Text="Buscar archivo"
+                HorizontalOptions="Center"
+                    Command="{Binding BuscarArchivo}" x:Name="btnBuscar"/>
+            <Button Margin="0,16,0,0" Text="Enviar Archivo"
+                HorizontalOptions="Center"
+                    Command="{Binding EnviarArchivo}" x:Name="btnEnviar"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

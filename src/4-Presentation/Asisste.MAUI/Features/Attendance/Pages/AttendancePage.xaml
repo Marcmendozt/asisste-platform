@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Asisste.MAUI.Features.Attendance.ViewModels"
+             x:Class="Asisste.MAUI.Features.Attendance.Pages.AttendancePage"
+             x:DataType="viewModels:AttendanceViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="24" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="20">
+            <Border Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Marcación diaria" FontSize="28" FontAttributes="Bold" />
+                    <Label Text="{Binding UserDisplayName}" Style="{StaticResource BodySecondaryLabelStyle}" />
+                    <Label Text="{Binding CurrentTime}" FontSize="36" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                <Border Padding="16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Estado" Style="{StaticResource CaptionLabelStyle}" />
+                        <Label Text="{Binding StatusMessage}" LineBreakMode="WordWrap" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" Padding="16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Salida" Style="{StaticResource CaptionLabelStyle}" />
+                        <Label Text="{Binding ExitTimeText}" FontSize="20" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Padding="16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Latitud" Style="{StaticResource CaptionLabelStyle}" />
+                            <Label Text="{Binding Latitude}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="6">
+                            <Label Text="Longitud" Style="{StaticResource CaptionLabelStyle}" />
+                            <Label Text="{Binding Longitude}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="2" Spacing="6">
+                            <Label Text="Precisión" Style="{StaticResource CaptionLabelStyle}" />
+                            <Label Text="{Binding Accuracy}" FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="2" Padding="16" IsVisible="{Binding HasFeedbackMessage}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <Label Text="{Binding FeedbackMessage}" />
+            </Border>
+
+            <VerticalStackLayout Grid.Row="3" Spacing="12">
+                <Button Text="Actualizar estado"
+                        Command="{Binding RefreshCommand}" />
+                <Button Text="{Binding ActionLabel}"
+                    IsEnabled="{Binding CanMark}"
+                        Command="{Binding MarkAttendanceCommand}" />
+                <Button Text="Abrir ajustes de GPS"
+                        Command="{Binding OpenLocationSettingsCommand}"
+                        BackgroundColor="{StaticResource Secondary}" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

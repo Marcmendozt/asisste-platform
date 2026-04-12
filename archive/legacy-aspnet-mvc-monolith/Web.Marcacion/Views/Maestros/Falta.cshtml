@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Falta";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+</head>
+<body>
+    @* Listado *@
+    <br />
+    <br />
+    <br />
+    <br />
+    <section>
+        <section id="ListadoFalta" class="float-right col-md-10">
+            <h1 class="clH1">Faltas</h1>
+            <br />
+            <div class="divbtnNuevo" onclick="Mostrar()">
+                <span id="btnNuevo" class="material-icons">add_box</span>
+                <label for="btnNuevo" class="lblNuevoRegistro">Nuevo</label>
+            </div>
+
+            <style>
+                .lblNuevoRegistro {
+                    position: absolute;
+                    cursor: pointer;
+                    font-family: Quicksand;
+                    font-weight: 900;
+                }
+
+                .divbtnNuevo {
+                    position: relative;
+                    left: 12px;
+                    cursor: pointer;
+                }
+            </style>
+
+            <div id="divTBFalta">
+            </div>
+
+        </section>
+
+
+        @* Crear *@
+        <section id="idRegistrarFalta" style="display:none" class="float-right col-md-10">
+            <h1>Registrar Falta</h1>
+            <br />
+
+            <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+            <form id="IDFormularioEnviarArchivo" target="hiddenFrame">
+                <div class="row g-3">
+                    <div class="col-md-3 mb-2">
+                        <label for="txtDNIEmpleado" class="visually-hidden">DNI : </label>
+                        <input type="text" class="form-control" id="txtDNIEmpleado" placeholder="Documento de identidad">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-5 mb-2">
+                            <label>Nombres :</label>
+                            <input type="text" class="form-control" id="txtNombreDNI" disabled>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label>Apellidos :</label>
+                            <input type="text" id="txtApellidoDNI" required class="form-control" disabled />
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button onclick="BuscarEmpleado()" id="btnEmpleado" class="btn btn-primary mb-3">Buscar empleado</button>
+                    </div>
+                </div>
+
+
+                <style>
+                    .btn {
+                        margin: 1.375rem !important;
+                    }
+                </style>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label>Fecha :</label>
+                        <input id="idFecha" type="date" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Documento pdf o jpg / png :</label>
+                    <label for="formFile" class="form-label"></label>
+                    <input class="form-control" type="file" id="formFile" onchange="return fileValidation()">
+                    <div id="imagePreview">
+
+                    </div>
+                    <div class="col-auto">
+                        <button onclick="EnviarDocumento()" class="btn btn-primary mb-3">Enviar documento</button>
+                        <button onclick="SalirRegistrar()" class="btn btn-primary mb-3">Salir</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        @* Modal Activar documento *@
+        <div class="modal fade" id="idModalActivarFalta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">¿Aceptar documento de falta?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="idPieDePagina" class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </section>
+
+</body>
+</html>
+<script src="~/js/Falta/JSFalta.js"></script>

@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Horarios";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section>
+        <section id="ListadoHorarios" class="float-right col-md-10">
+            <h1 class="clH1">Horarios</h1>
+            <br />
+            <div class="divbtnNuevo" onclick="MostrarFormularioRegistrar()">
+                <span id="btnNuevo" class="material-icons">add_box</span>
+                <label for="btnNuevo" class="lblNuevoRegistro">Nuevo</label>
+            </div>
+
+            <style>
+                .lblNuevoRegistro {
+                    position: absolute;
+                    cursor: pointer;
+                    font-family: Quicksand;
+                    font-weight: 900;
+                }
+
+                .divbtnNuevo {
+                    position: relative;
+                    left: 12px;
+                    cursor: pointer;
+                }
+
+                .clH1 {
+                    font-family: Quicksand;
+                    font-size: 335%;
+                    font-weight: 900;
+                    text-decoration: underline;
+                }
+            </style>
+            <div id="divTBHorarios">
+            </div>
+        </section>
+        <section id="CrearNuevoHorario" style="display:none">
+            <h1 class="clH1">Registar Nuevo Horario</h1>
+            <br />
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-group">
+                    <label>Hora de entrada:</label>
+                    <input type="time" id="txtAgregarHoraEntrada" required class="form-control" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-group">
+                    <label>Hora de salida:</label>
+                    <input type="time" id="txtAgregarHoraSalida" required class="form-control" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label for="txtAgregarTolerancia">Tolerancia</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend">Minutos</span>
+                            </div>
+                            <input type="text" class="form-control" id="txtAgregarTolerancia" placeholder="00:00" aria-describedby="inputGroupPrepend" required>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="col-md-5 mb-3 dropdown show">
+                    <div class="dropdown show">
+                        <label for="txtAgregarJornada">Jornada :</label>
+                        <br />
+                        <div id="cbxJornada">
+                            <select id="slTipoJornada" class="browser-default custom-select">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="button" onclick="CrearNuevoHorario()" class="btn btn-outline-success float-right">Crear Horario</button>
+                <button type="button" onclick="CancelarNuevoHorario()" class="btn btn-outline-danger ">Cancelar</button>
+            </div>
+
+        </section>
+        <section id="EditarHorario" style="display:none">
+            <h1 class="clH1">Modificar Horario</h1>
+            <input type="hidden" id="IDHorarioHidden" />
+            <br />
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-group">
+                    <label>Hora de entrada:</label>
+                    <input type="time" id="txtEditarHoraEntrada" required class="form-control" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-group">
+                    <label>Hora de salida:</label>
+                    <input type="time" id="txtEditarHoraSalida" required class="form-control" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label for="txtEditarTolerancia">Tolerancia</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend">Minutos</span>
+                            </div>
+                            <input type="text" class="form-control" id="txtEditarTolerancia" placeholder="00:00" aria-describedby="inputGroupPrepend" required>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center col-md-12">
+                <div class="col-md-5 mb-3 dropdown show">
+                    <div class="dropdown show">
+                        <label for="txtEditarJornada">Jornada :</label>
+                        <br />
+                        <div id="cbxJornada">
+                            <select id="slEditarTipoJornada" class="browser-default custom-select">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="button" onclick="EditarHorario()" class="btn btn-outline-success float-right">Guardar cambios</button>
+                <button type="button" onclick="CancelarEditarHorario()" class="btn btn-outline-danger ">Cancelar</button>
+            </div>
+        </section>
+        <div class="modal fade" id="ModalEliminarHorario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">¿Esta seguro de eliminar el horario?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="idmf" class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+<script src="~/js/Horarios/JSHorarios.js"></script>

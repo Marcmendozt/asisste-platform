@@ -1,0 +1,861 @@
+﻿body {
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam');
+
+i.Clave {
+    background-image: url(../imagenes/Persona/secure.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+input#Clave {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#idClave {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+.CE {
+
+
+}
+
+
+
+
+i.menu {
+    background-image: url(../imagenes/menu.png);
+    width: 100% !important;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 36px;
+    padding: 7px 18px;
+}
+
+
+
+
+i.users {
+    background-image: url(../imagenes/teamwork.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+}
+
+/* Email*/
+i.PerDireccion {
+    background-image: url(../imagenes/Persona/address.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 16px;
+}
+
+textarea#Direccion {
+    position: relative;
+    width: 92%;
+    left: 39px;
+    padding: 0px;
+    top: 8px;
+    border-radius: 4px;
+    border-color: black;
+}
+
+label#idPerDireccion {
+    position: absolute;
+    left: 42px;
+}
+
+
+
+
+
+
+
+i.txtDescripcion {
+    background-image: url(../imagenes/Perfil/tag.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#txtDescripcion {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+input#Descripcion {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#idDescripcion {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+
+
+.CTJ {
+    background-position: 5px !important;
+    padding: 7px !important;
+    right: -16px !important;
+    width: 110px !important;
+    top: 3px !important;
+    text-align: right !important;
+    font-weight: 900 !important;
+}
+
+
+
+
+i.Hora {
+    background-image: url(../imagenes/working-hours.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#HoraEntrada {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+input#HoraSalida {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+input#Tolerancia {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#idTolerancia {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+label#idHora {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+    top: 4px;
+}
+
+
+
+
+.MES {
+    top: 16px !important;
+}
+
+
+
+
+
+
+/* Fin Email*/
+
+
+i.Correo {
+    background-image: url(../imagenes/Persona/email.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Correo {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+    
+}
+
+label#idCorreo {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+   
+}
+
+
+i.txtcargo {
+    background-image: url(../imagenes/Persona/title.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+select#ID_TipoJornada {
+    font-family: 'Quicksand';
+    font-weight: 900;
+    border-radius: 5px;
+    border-color: black;
+}
+
+
+input#Cargo {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+
+input#txtcargo {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#idCargo {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+
+
+i.txtDestino {
+    background-image: url(../imagenes/EnvioCorreo/delivery.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#txtDestino {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#lblDestino {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+
+
+/*i.txtMensaje {
+    background-image: url(../imagenes/EnvioCorreo/conversation.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+textarea#txtMensaje {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#lblMensaje {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}*/
+
+
+
+i.txtAsunto {
+    background-image: url(../imagenes/EnvioCorreo/writing.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#txtAsunto {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#lblAsunto {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+
+
+i.Sexo {
+    background-image: url(../imagenes/Persona/bigender.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Sexo {
+    position: relative;
+    left: 38px;
+    width: 90%;
+    font-family: 'Quicksand';
+}
+
+label#idSexo {
+    position: absolute;
+    left: 39px;
+    font-family: 'Quicksand';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+span.user {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 11px;
+    font-family: 'Quicksand';
+    font-weight: 900;
+}
+
+
+
+i.RUC {
+    background-image: url(../imagenes/Empresa/company.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#RUC {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idRUC {
+    position: absolute;
+    left: 39px;
+}
+
+label#lblAgregar {
+    position: relative;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    left: -124px;
+    width: 24%;
+    top: 1px;
+   
+}
+
+i.RazonSocial {
+    background-image: url(../imagenes/Empresa/identity.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#RazonSocial {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idRazonSocial {
+    position: absolute;
+    left: 39px;
+}
+
+
+i.Nombre {
+    background-image: url(../imagenes/Persona/personal-information.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Nombre {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idNombre {
+    position: absolute;
+    left: 39px;
+}
+
+
+
+i.Apellido {
+    background-image: url(../imagenes/Persona/personal-information.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Apellido{
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idApellido {
+    position: absolute;
+    left: 39px;
+}
+
+
+
+i.NumeroDocumento {
+    background-image: url(../imagenes/Persona/document.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#NumeroDocumento {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idNumeroDocumento {
+    position: absolute;
+    left: 39px;
+}
+
+
+
+
+/* Grupo*/
+i.Grupo {
+    background-image: url(../imagenes/Empresa/group.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Grupo {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idGrupo {
+    position: absolute;
+    left: 39px;
+}
+
+
+/* Fin Grupo*/
+
+
+
+/* Telefono*/
+i.Telefono {
+    background-image: url(../imagenes/Persona/smartphone.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 9px;
+}
+
+input#Movil {
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+
+input#Telefono{
+    position: relative;
+    left: 38px;
+    width: 90%;
+}
+
+label#idTelefono {
+    position: absolute;
+    left: 39px;
+}
+
+/* Fin Telefono*/
+
+
+
+
+
+i.profile {
+    background-image: url(../imagenes/profile.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+i.dayworking {
+    background-image: url(../imagenes/working-hours.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+i.enterprise {
+    background-image: url(../imagenes/office.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+
+i.report {
+    background-image: url(../imagenes/Menu/report.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+i.assistance {
+    background-image: url(../imagenes/asistencia.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+i.helpemployee {
+    background-image: url(../imagenes/24-hours-support.png);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-repeat: no-repeat;
+    left: 24px;
+    top: 9px;
+}
+
+
+.side-nav a {
+    display: block;
+    height: 56px;
+    font-size: 1rem;
+    line-height: 56px;
+    width: 100% !important;
+    left: 0%;
+    text-align: center;
+}
+
+.black-skin .side-nav .collapsible li .collapsible-header.active {
+    background-color: transparent !important;
+}
+
+
+.black-skin .side-nav .collapsible li .collapsible-header:hover {
+    background-color: transparent !important;
+}
+
+
+.side-nav .collapsible {
+    padding: 0;
+    margin: 0;
+    margin-top: 3rem !important;
+}
+
+.side-nav .collapsible-body a {
+    background-color: transparent !important;
+}
+
+
+.side-nav ul li {
+    font-family: Quicksand;
+    padding: 2px !important;
+}
+
+
+
+a.logotitle {
+    text-align: center;
+    position: absolute;
+    left: 114px;
+    font-family: 'Kalam';
+    top: -6px;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(153,153,153,0.3);
+}
+
+
+.navbar {
+    font-weight: 300;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+}
+
+
+
+.btnmarc.Agregar {
+    position: relative;
+    right: 112px;
+    background-image: url(../imagenes/plus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 16px;
+}
+
+
+.AddUser {
+    background-position: 5px !important;
+    padding: 7px !important;
+    right: 13px !important;
+    width: 100px !important;
+    top: 3px !important;
+    text-align: right !important;
+    font-weight: 900 !important;
+}
+
+.btnmarc.Editar {
+    position: relative;
+    right: 112px;
+    background-image: url(../imagenes/eraser.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 6px;
+    right: 3px;
+    width: 115px;
+    top: 3px;
+    text-align: right;
+    font-weight: 900;
+}
+
+
+.btnmarc.Eliminar {
+    position: relative;
+    right: 112px;
+    background-image: url(../imagenes/trash.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 6px;
+    right: 3px;
+    width: 115px;
+    top: 3px;
+    text-align: right;
+    font-weight: 900;
+}
+
+
+.btnmarc.Regresar {
+    position: relative;
+    background-image: url(../imagenes/cancel.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 6px;
+    right: -29px;
+    width: 133px;
+    top: 3px;
+    text-align: right;
+    font-weight: 900;
+}
+
+
+
+.btnmarc.Siguiente {
+    position: relative;
+    background-image: url(../imagenes/Persona/right-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 7px;
+    right: 3px;
+    width: 115px;
+    top: 3px;
+    text-align: right;
+    font-weight: 900;
+}
+
+.btnmarc.Details {
+    position: relative;
+    top: 1px;
+    background-image: url(../imagenes/left-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 7px;
+    right: 3px;
+    width: 115px;
+    top: 3px;
+    text-align: right;
+    font-weight: 900;
+}
+
+
+.form-check-input[type="checkbox"]:checked:disabled + label:before, label.btn input[type="checkbox"]:checked:disabled + label:before {
+    border-right: 2px solid #15fd05 !important;
+    border-bottom: 2px solid #5cff09 !important;
+}
+
+
+button.btn.btn-primary.btnmarc.waves-effect.waves-light {
+    background-image: url(../imagenes/add-button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 16px;
+}
+
+
+button.btn.btn-primary.import.waves-effect.waves-light {
+    background-image: url(../imagenes/Perfil/import.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.0) !important;
+    padding: 7px;
+    left: -20px;
+}
+
+
+label#lblImportar {
+    position: relative;
+    right: 50px;
+    font-family: 'Quicksand';
+    font-weight: 700;
+}
+
+
+input#buscar {
+    font-family: 'Quicksand';
+    font-weight: 700;
+    border-radius: 5px;
+    border-color: black;
+}
+
+label.lblEditar {
+    position: absolute !important;
+    left: 81% !important;
+    
+    font-family: 'Quicksand';
+    font-weight: 900 !important;
+}
+
+button#btnEditar {
+    position: relative;
+    top: 2px;
+    left: 77px;
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+.CPA {
+    width: 13% !important;
+    left: 1px;
+}
+
+
+.CEP {
+    width: 19% !important;
+    left: 1px;
+}

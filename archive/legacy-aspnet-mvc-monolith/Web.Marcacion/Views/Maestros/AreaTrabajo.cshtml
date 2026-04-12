@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Áreas de trabajo";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AreaTrabajo</title>
+</head>
+<body>
+    @* Listado *@
+    <br />
+    <br />
+    <br />
+    <br />
+    <section>
+        <section id="ListadoAreaTrabajo" class="float-right col-md-10">
+            <h1 class="clH1">Áreas de trabajo</h1>
+            <br />
+            <div class="divbtnNuevo" onclick="Mostrar()">
+                <span id="btnNuevo" class="material-icons">add_box</span>
+                <label for="btnNuevo" class="lblNuevoRegistro">Nuevo</label>
+            </div>
+
+            <style>
+                .lblNuevoRegistro {
+                    position: absolute;
+                    cursor: pointer;
+                    font-family: Quicksand;
+                    font-weight: 900;
+                }
+
+                .divbtnNuevo {
+                    position: relative;
+                    left: 12px;
+                    cursor: pointer;
+                }
+
+                .clH1 {
+                    font-family: Quicksand;
+                    font-size: 335%;
+                    font-weight: 900;
+                    text-decoration: underline;
+                }
+            </style>
+            <div id="divTBAreaTrabajo">
+            </div>
+
+            <a onclick="prevPage()" id="btn_prev">Anterior</a>
+            <a onclick="nextPage()" id="btn_next">Siguiente</a>
+            <span>Página :</span> <span id="page"></span>
+            <style>
+                span {
+                    font-weight: 900;
+                    font-family: 'Quicksand';
+                }
+
+                a#btn_next {
+                    font-weight: 900;
+                    font-family: 'Quicksand';
+                }
+
+                span#page {
+                    font-family: 'Quicksand';
+                    font-weight: 900;
+                }
+
+                a#btn_prev {
+                    font-family: 'Quicksand';
+                    font-weight: 900;
+                }
+            </style>
+            <div id="idModal" data-toggle="modal" data-target="#exampleModalCenter">
+
+            </div>
+        </section>
+
+
+
+        @* Crear *@
+        <section id="CrearAreaTrabajo" style="display:none" class="float-right col-md-10">
+            <h1>Nuevo AreaTrabajo</h1>
+            <br />
+            <div class="d-flex justify-content-center">
+                <form onsubmit="GuardarAreaTrabajo();return false;">
+                    <div class="form-group">
+                        <label for="txtAreaTrabajo">Descripción :</label>
+                        <input class="form-control" id="txtAreaTrabajo" placeholder="Ingresar descripcion">
+
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="md-form m-2 text-center">
+                <button type="button" onclick="GuardarAreaTrabajo()" class="btn btn-outline-success">Guardar</button>
+            </div>
+            <div class="md-form m-2 text-center">
+                <button type="button" onclick="CancelarCrear()" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </section>
+        @* Editar *@
+        <section id="EditarAreaTrabajo" style="display:none" class="float-right col-md-10">
+            <h1>MODIFICAR AreaTrabajo</h1>
+            <div class="d-flex justify-content-center">
+                <form>
+                    <input type="hidden" id="hdnIDAreaTrabajo" />
+                    <div class="form-group">
+                        <label for="txtDesc">Descripción :</label>
+                        <input class="form-control" id="txtDesc" placeholder="Ingresar descripcion">
+
+                    </div>
+                </form>
+            </div>
+            <div class="md-form m-2 text-center">
+                <button type="button" onclick="EditarAreaTrabajo()" class="btn btn-outline-success">Actualizar</button>
+            </div>
+            <div class="md-form m-2 text-center">
+                <button type="button" onclick="CancelarEditar()" class="btn btn-outline-danger">Cancelar</button>
+            </div>
+        </section>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">¿Esta seguro de eliminar el AreaTrabajo?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="idmf" class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
+<script src="~/js/AreaTrabajo/JSAreaTrabajo.js"></script>

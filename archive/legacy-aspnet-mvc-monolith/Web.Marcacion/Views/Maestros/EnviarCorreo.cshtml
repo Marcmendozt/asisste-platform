@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Enviar Correo";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EnviarCorreo</title>
+</head>
+<body>
+    <section id="stEnviarCorreo">
+        <h1>Enviar Correo</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form>
+
+                <div class="form-group">
+                    <label>Para :</label>
+                    <input type="text" class="form-control" id="idPara">
+                </div>
+                <div class="form-group">
+                    <label>Asunto :</label>
+                    <input type="text" class="form-control" id="idAsunto">
+                </div>
+                <div class="form-group">
+                    <label for="txtMensaje">Mensaje : </label>
+                    <textarea class="form-control" id="txtMensaje" rows="3"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="GuardarTipoJornada()" class="btn btn-outline-success">Agregar</button>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="CancelarCrear()" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </section>
+</body>
+</html>

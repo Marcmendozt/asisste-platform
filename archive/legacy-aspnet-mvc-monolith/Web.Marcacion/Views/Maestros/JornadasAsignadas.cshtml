@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Jornadas asignadas";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JornadasAsignadas</title>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section id="stListadoJornadaEmpleado">
+        <h1>Jornadas Asignadas</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <input id="idFiltrar" type="text" class="col-xs-3" placeholder="Escriba algo para filtrar" />
+        </div>
+        <br />
+        <br />
+        <div id="idTBJornadasAsignadas">
+        </div>
+    </section>
+
+
+    <section id="stEditarJornadaEmpleado" style="display:none">
+        <h1>CAMBIAR JORNADA</h1>
+        <div class="d-flex justify-content-center">
+            <form>
+                <input type="hidden" id="hdnIDJornadaEmpleado" />
+                <div class="form-group">
+                    <label for="txtEditarNombreCompleto">Nombre completo :</label>
+                    <input class="form-control" id="txtEditarNombreCompleto" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label for="txtEditarCargo">Cargo :</label>
+                    <input class="form-control" id="txtEditarCargo" disabled="disabled">
+                </div>
+                <div class="dropdown show">
+                    <label for="txtEditarTipoJornada">Tipo jornada :</label>
+                    <br />
+                    <div id="cbxTipoJornada">
+                        <select id="slTipoJornada" onchange="CambiarHorario()" class="browser-default custom-select">
+                        </select>
+                    </div>
+                    <br />
+                    <label for="txtEditarTipoJornada">Horarios disponibles :</label>
+                    <div id="cbxHorarios">
+                        <select id="slHorarios" class="browser-default custom-select">
+                        </select>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="EditarJornadaEmpleado()" class="btn btn-outline-success">Actualizar</button>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="CancelarEditar()" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </section>
+
+
+
+
+</body>
+</html>
+
+<script src="~/js/EmpleadoJornada/JSJornadaEmpleado.js"></script>

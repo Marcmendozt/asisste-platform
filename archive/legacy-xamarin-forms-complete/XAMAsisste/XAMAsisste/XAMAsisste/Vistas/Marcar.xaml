@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XAMAsisste.Vistas.Marcar">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button Clicked="MostrarMapa" Text="Ver mi ubicación"></Button>
+            <Label Text="Fecha y hora actual" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+            <Label x:Name="lblUsuarioOriginal" FontSize="30"></Label>
+            <Label x:Name="lblTiempo" FontSize="50"></Label>
+            <Label x:Name="lblLati" FontSize="20"></Label>
+            <Label x:Name="lblLong" FontSize="20"></Label>
+            <Button x:Name="btn" Clicked="MarcarAsistencia"></Button>
+   
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

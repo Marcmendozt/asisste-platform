@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "Listado de Jornadas";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section id="stListadoTipoJornada">
+        <h1 class="clH1">LISTADO DE JORNADAS</h1>
+        <br />
+        <div class="divbtnNuevo" onclick="Mostrar()">
+            <span id="btnNuevo" class="material-icons">add_box</span>
+            <label for="btnNuevo" class="lblNuevoRegistro">Nuevo</label>
+        </div>
+        <style>
+            .lblNuevoRegistro {
+                position: absolute;
+                cursor: pointer;
+                font-family: Quicksand;
+                font-weight: 900;
+            }
+
+            .divbtnNuevo {
+                position: relative;
+                left: 12px;
+                cursor: pointer;
+            }
+
+            .clH1 {
+                font-family: Quicksand;
+                font-size: 335%;
+                font-weight: 900;
+                text-decoration: underline;
+            }
+        </style>
+
+        <div id="divTBTipoJornadas">
+        </div>
+        <a onclick="prevPage()" id="btn_prev">Anterior</a>
+        <a onclick="nextPage()" id="btn_next">Siguiente</a>
+        <span>Página :</span> <span id="page"></span>
+        <style>
+            span {
+                font-weight: 900;
+                font-family: 'Quicksand';
+            }
+
+            a#btn_next {
+                font-weight: 900;
+                font-family: 'Quicksand';
+            }
+
+            span#page {
+                font-family: 'Quicksand';
+                font-weight: 900;
+            }
+
+            a#btn_prev {
+                font-family: 'Quicksand';
+                font-weight: 900;
+            }
+        </style>
+        <div id="idModal" data-toggle="modal" data-target="#exampleModalCenter">
+
+        </div>
+    </section>
+
+    <section id="stCrearTipoJornada" style="display:none">
+        <h1>Nueva Jornada</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form>
+
+                <div class="form-group">
+                    <label>Descripción:</label>
+                    <input type="text" class="form-control" id="txtAgregarDescripcion" name="Descripcion">
+                </div>
+                <div class="form-group">
+                    <label>Detalles:</label>
+                    <br />
+                    <textarea id="txtAgregarDetalles">
+
+                    </textarea>
+                    <style>
+                        textarea#txtAgregarDetalles {
+                            width: 235px;
+                            height: 165px !important;
+                        }
+                    </style>
+                </div>
+            </form>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="GuardarTipoJornada()" class="btn btn-outline-success">Agregar</button>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="CancelarCrear()" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </section>
+    <section id="stEditarTipoJornada" style="display:none">
+        <h1>Editar Jornada</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form>
+                <input type="hidden" id="hdnIDTipoJornada" />
+                <div class="form-group">
+                    <label>Descripción:</label>
+                    <input type="text" class="form-control" id="txtEditarDescripcion" name="Descripcion">
+                </div>
+                <div class="form-group">
+                    <label>Detalles:</label>
+                    <br />
+                    <textarea id="txtEditarDetalles">
+
+                    </textarea>
+                    <style>
+                        textarea#txtEditarDetalles {
+                            width: 235px;
+                            height: 165px !important;
+                        }
+                    </style>
+                </div>
+            </form>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="EditarTipoJornada()" class="btn btn-outline-success">Actualizar</button>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="CancelarEditar()" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">¿Esta seguro de eliminar la jornada?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="idmf" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModalDetalles" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Detalles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="txtModalDetalles">
+
+                    </div>
+                </div>
+                <div id="idModalDetalles" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="~/js/TipoJornada/JSTipoJornada.js"></script>

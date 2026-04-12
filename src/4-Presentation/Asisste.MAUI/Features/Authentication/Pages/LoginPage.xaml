@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Asisste.MAUI.Features.Authentication.ViewModels"
+             x:Class="Asisste.MAUI.Features.Authentication.Pages.LoginPage"
+             x:DataType="viewModels:LoginViewModel"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <Grid Padding="24,48" RowDefinitions="Auto,Auto,*" RowSpacing="24">
+            <Border Padding="24">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="72,*" ColumnSpacing="16">
+                    <Border WidthRequest="72" HeightRequest="72" HorizontalOptions="Start" VerticalOptions="Center">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="24" />
+                        </Border.StrokeShape>
+                        <Image Source="lock.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="4">
+                        <Label Text="Asisste" FontSize="32" FontAttributes="Bold" />
+                        <Label Text="Acceso móvil con autenticación real, asistencia y faltas." Style="{StaticResource BodySecondaryLabelStyle}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="16">
+                <Label Text="Acceso" Style="{StaticResource SectionTitleStyle}" />
+                <Entry Grid.Row="1"
+                       Text="{Binding Username}"
+                       Placeholder="Usuario"
+                       ReturnType="Next" />
+                <Entry Grid.Row="2"
+                       Text="{Binding Password}"
+                       Placeholder="Contraseña"
+                       IsPassword="True"
+                       ReturnType="Go" />
+                <Label Grid.Row="3"
+                       Text="{Binding ValidationMessage}"
+                       TextColor="{StaticResource Danger}"
+                       IsVisible="{Binding HasValidationMessage}" />
+                <Button Grid.Row="4"
+                        Text="Iniciar sesión"
+                        Command="{Binding SignInCommand}" />
+                <Label Grid.Row="5"
+                       Text="Si solo quieres probar los módulos sin API, usa el acceso local de QA."
+                       Style="{StaticResource BodySecondaryLabelStyle}" />
+                <Button Grid.Row="6"
+                        Text="Entrar en modo local"
+                        Command="{Binding SignInLocalCommand}"
+                        BackgroundColor="{StaticResource Secondary}" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

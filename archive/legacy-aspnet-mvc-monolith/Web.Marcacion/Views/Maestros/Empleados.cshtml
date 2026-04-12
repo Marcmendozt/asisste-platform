@@ -1,0 +1,435 @@
+﻿
+@{
+    ViewBag.Title = "Empleados";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!--Material icons-->
+  
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section id="stListadoPersona" class="float-right col-md-10">
+        <h1>LISTADO DE USUARIOS</h1>
+
+        <div class="divbtnNuevo" onclick="Mostrar()">
+            <span id="btnNuevo" class="material-icons">add_box</span>
+            <label for="btnNuevo" class="lblNuevoRegistro">Nuevo</label>
+        </div>
+        <style>
+            .lblNuevoRegistro {
+                position: absolute;
+                cursor: pointer;
+                font-family: Quicksand;
+                font-weight: 900;
+            }
+
+            .divbtnNuevo {
+                position: relative;
+                left: 12px;
+                cursor: pointer;
+            }
+
+            .clH1 {
+                font-family: Quicksand;
+                font-size: 335%;
+                font-weight: 900;
+                text-decoration: underline;
+            }
+        </style>
+        <div id="divTBPersona">
+        </div>
+        <div id="idModal" data-toggle="modal" data-target="#exampleModalCenter">
+        
+        </div>
+    </section>
+    <section id="stCrearEmpleado1" style="display:none" class="float-right col-md-10">
+        <h1> 1. CREAR USUARIO</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-6 mb-2">
+                        <label>Nombres :</label>
+                        <input type="text" class="form-control" id="txtAgregarNombre" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Apellidos :</label>
+                        <input type="text" id="txtAgregarApellidos" required class="form-control" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="txtAgregarCorreo">Correo : (Este será el usuario de ingreso al sistema)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="validationTooltipUsernamePrepend">&#64</span>
+                            </div>
+                            <input type="text" class="form-control" id="txtAgregarCorreo" placeholder="" aria-describedby="validationTooltipUsernamePrepend" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label>Contraseña :</label>
+                        <div id="idVerContraseña">
+                            <input type="password" class="form-control" id="txtAgregarContraseña" required maxlength="14">
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Confirmación :</label>
+                        <div class="input-group mb-4" id="idVerContraseña">
+                            <input type="password" class="form-control" id="txtAgregarConfirmacion" maxlength="14">
+                            <div class="input-group-append">
+                                <a id="ideyeshow" class="material-icons">visibility</a>
+                            </div>
+                            <style>
+                                a#ideyeshow {
+                                    position: absolute;
+                                    top: 5px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+                <div class="justify-content-center">
+                    <button type="button" onclick="SiguienteP2()" class="btn btn-outline-success float-right">Siguiente</button>
+                    <button type="button" onclick="CancelarSeccionCrearUsuario()" class="btn btn-outline-danger ">Cancelar</button>
+                </div>
+            </form>
+
+
+
+        </div>
+
+
+
+
+    </section>
+    <section id="stCrearEmpleado2" style="display:none" class="float-right col-md-10">
+        <h1>2. DATOS GENERALES</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form class="needs-validation col-md-5" novalidate>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                        <label>Celular :</label>
+                        <input type="text" class="form-control" maxlength="9" id="txtAgregarCelular">
+                    </div>
+                </div>
+                <label>Fecha de Nacimiento</label>
+                <div class="form-row">
+
+                    <div class="col-md-3 mb-2">
+                        <label>DÍA :</label>
+                        <input type="text" class="form-control" maxlength="2" id="txtAgregarDia">
+                    </div>
+                    <div class="col-md-5 mb-2 dropdown show">
+                        <label for="txtAgregarMes">MES:</label>
+                        <br />
+                        <div id="cbxMES">
+                            <select id="slMES" class="browser-default custom-select">
+                                <option value="0">Seleccione:</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label>AÑO :</label>
+                        <input type="text" class="form-control" maxlength="4" id="txtAgregarAño">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <label for="txtAgregarGenero">Género:</label>
+                        <br />
+                        <div id="cbxGenero">
+                            <select id="slGenero" class="browser-default custom-select">
+                                <option value="0">Seleccione:</option>
+                                <option value="1">Hombre</option>
+                                <option value="2">Mujer</option>
+                                <option value="3">Sin especificar</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtAgregarTipoDocumento">Tipo de documento :</label>
+                            <br />
+                            <select id="slTipoDocumento" onchange="Longitud()" class="browser-default custom-select">
+                               
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label>N° de documento :</label>
+                        <div id="divtxtNumeroDocumento">
+                            <input type="text" class="form-control" id="txtNumeroDocumento">
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="justify-content-center">
+                    <button type="button" onclick="SiguienteP3()" class="btn btn-outline-success float-right">Siguiente</button>
+                    <button type="button" onclick="CancelarP2()" class="btn btn-outline-danger ">Atrás</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="stCrearEmpleado3" style="display:none" class="float-right col-md-10">
+        <h1>3. ASIGNACIONES</h1>
+        <br />
+        <div class="d-flex justify-content-center">
+            <form class="needs-validation col-md-5" novalidate>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtAgregarPerfil">Perfil :</label>
+                            <br />
+                            <div id="cbxPerfil">
+                                <select id="slPerfil" class="browser-default custom-select">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtAgregarCargo">Cargo :</label>
+                            <br />
+                            <div id="cbxCargo">
+                                <select id="slCargo" class="browser-default custom-select">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown show">
+                        <label for="txtEditarTipoJornada">Tipo jornada :</label>
+                        <br />
+                        <div id="cbxTipoJornada">
+                            <select id="slTipoJornada" onchange="CambiarHorario()" class="browser-default custom-select">
+                            </select>
+                        </div>
+                        <br />
+                        <label for="txtEditarTipoJornada">Horarios disponibles :</label>
+                        <div id="cbxHorarios">
+                            <select id="slHorarios" class="browser-default custom-select">
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="dropdown show">
+                        <label for="txtLugarTrabajo">Lugar de trabajo :</label>
+                        <br />
+                        <div id="cbxLugarTrabajo">
+                            <select id="slLugarTrabajo" class="browser-default custom-select">
+                            </select>
+                        </div>
+                        <br />
+                     
+
+                    </div>
+                </div>
+                <div class="justify-content-center">
+                    <button type="button" onclick="CrearUsuario()" class="btn btn-outline-success float-right">Crear Usuario</button>
+                    <button type="button" onclick="CancelarP3()" class="btn btn-outline-danger ">Atrás</button>
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <section id="stEditarDatosEmpleado" style="display:none" class="float-right col-md-10">
+        <h1>EDITAR DATOS EMPLEADO</h1>
+        <div class="d-flex justify-content-center">
+            <form>
+                <input type="hidden" id="hdnIDEmpleado" />
+                <input type="hidden" id="hdnIDUsuario" />
+                <div class="form-row">
+                    <div class="col-md-6 mb-2">
+                        <label>Nombres :</label>
+                        <input type="text" class="form-control" id="txtEditarNombres" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Apellidos :</label>
+                        <input type="text" id="txtEditarApellidos" required class="form-control" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="txtEditarCorreo">Correo:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="validationTooltipUsernamePrepend">&#64</span>
+                            </div>
+                            <input type="text" class="form-control" id="txtEditarCorreo" placeholder="" aria-describedby="validationTooltipUsernamePrepend" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-2">
+                        <label>Contraseña :</label>
+                        <div id="idVerContraseña">
+                            <input type="password" class="form-control" id="txtEditarContraseña" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label>Confirmación :</label>
+                        <div class="input-group mb-4"  id="idVerContraseña" >
+                            <input type="password" class="form-control" id="txtEditarConfirmacion">
+                            <div class="input-group-append">
+                                <a class="material-icons" onclick="MostrarPass()">visibility</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                        <label>Celular :</label>
+                        <input type="text" class="form-control" maxlength="9" id="txtEditarCelular">
+                    </div>
+                </div>
+                <label>Fecha de Nacimiento</label>
+                <div class="form-row">
+                    <br />
+                    <div class="col-md-3 mb-2">
+                        <label>DÍA :</label>
+                        <input type="text" class="form-control" maxlength="2" id="txtEditarDia">
+                    </div>
+                    <div class="col-md-5 mb-2 dropdown show">
+                        <label for="txtEditarMes">MES:</label>
+                        <br />
+                        <div id="cbxEditarMES">
+                            <select id="slEditarMES" class="browser-default custom-select">
+                                <option value="0">Seleccione:</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label>AÑO :</label>
+                        <input type="text" class="form-control" maxlength="4" id="txtEditarAño">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <label for="txtEditarGenero">Género:</label>
+                        <br />
+                        <div id="cbxEditarGenero">
+                            <select id="slEditarGenero" class="browser-default custom-select">
+                                <option value="0">Seleccione:</option>
+                                <option value="1">Hombre</option>
+                                <option value="2">Mujer</option>
+                                <option value="3">Sin especificar</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtEditarTipoDocumento">Tipo de documento :</label>
+                            <br />
+                            <div id="cbxEditarTipoDocumento">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label>N° de documento :</label>
+                        <div id="divtxtEditarNumeroDocumento">
+                            <input type="text" class="form-control" id="txtEditarNumeroDocumento">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtEditarPerfil">Perfil :</label>
+                            <br />
+                            <div id="cbxEditarPerfil">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3 dropdown show">
+                        <div class="dropdown show">
+                            <label for="txtEditarCargo">Cargo :</label>
+                            <br />
+                            <div id="cbxEditarCargo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="VUEditar()" class="btn btn-outline-success">Actualizar</button>
+        </div>
+        <div class="md-form m-2 text-center">
+            <button type="button" onclick="CancelarEditar()" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="idModalBody" class="modal-body" style="display:none">
+
+                </div>
+                <div id="idmf" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+<script src="~/js/Persona/JSPersona.js"></script>

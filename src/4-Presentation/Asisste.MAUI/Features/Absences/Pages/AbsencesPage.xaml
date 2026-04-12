@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Asisste.MAUI.Features.Absences.ViewModels"
+             x:Class="Asisste.MAUI.Features.Absences.Pages.AbsencesPage"
+             x:DataType="viewModels:AbsencesViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="24" RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
+            <Border Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Presentar falta" FontSize="28" FontAttributes="Bold" />
+                    <Label Text="{Binding StatusMessage}" Style="{StaticResource BodySecondaryLabelStyle}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Row="1" Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Archivo seleccionado" Style="{StaticResource CaptionLabelStyle}" />
+                    <Label Text="{Binding FileName}" FontAttributes="Bold" LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Border>
+
+            <VerticalStackLayout Grid.Row="2" Spacing="12">
+                <Border Padding="16" IsVisible="{Binding HasFeedbackMessage}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <Label Text="{Binding FeedbackMessage}" />
+                </Border>
+                <Button Text="Buscar archivo"
+                        Clicked="OnPickFileClicked" />
+                <Button Text="Enviar archivo"
+                        Command="{Binding SubmitCommand}" />
+                <Button Text="Actualizar estado"
+                        Command="{Binding RefreshCommand}"
+                        BackgroundColor="{StaticResource Secondary}" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
