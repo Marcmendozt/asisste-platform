@@ -1,6 +1,0 @@
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\bin\Debug\APPAsissteXamarin.Entidades.dll
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\bin\Debug\APPAsissteXamarin.Entidades.pdb
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\obj\Debug\APPAsissteXamarin.Entidades.csprojAssemblyReference.cache
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\obj\Debug\APPAsissteXamarin.Entidades.csproj.CoreCompileInputs.cache
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\obj\Debug\APPAsissteXamarin.Entidades.dll
-C:\Users\MarcosJulio\Desktop\APPAsissteXamarin\APPAsissteXamarin.Entidades\obj\Debug\APPAsissteXamarin.Entidades.pdb

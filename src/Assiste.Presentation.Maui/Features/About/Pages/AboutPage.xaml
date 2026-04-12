@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Assiste.Presentation.Maui.Features.About.ViewModels"
+             x:Class="Assiste.Presentation.Maui.Features.About.Pages.AboutPage"
+             x:DataType="viewModels:AboutViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid Padding="24" RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
+            <Border Padding="24" BackgroundColor="{StaticResource Primary}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28" />
+                </Border.StrokeShape>
+                <Grid ColumnDefinitions="72,*" ColumnSpacing="18">
+                    <Border WidthRequest="72" HeightRequest="72" BackgroundColor="{StaticResource OnPrimary}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="24" />
+                        </Border.StrokeShape>
+                        <Image Source="about.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="6" VerticalOptions="Center">
+                        <Label Text="{Binding Headline}" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource OnPrimary}" />
+                        <Label Text="{Binding VersionText}" TextColor="{StaticResource PrimaryMuted}" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Padding="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{Binding Summary}" />
+                    <Label Text="{Binding Details}" Style="{StaticResource BodySecondaryLabelStyle}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Grid.Row="2"
+                    Text="Abrir documentación de MAUI"
+                    Command="{Binding OpenDocumentationCommand}" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
