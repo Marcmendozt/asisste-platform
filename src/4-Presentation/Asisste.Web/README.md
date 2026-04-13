@@ -1,15 +1,24 @@
 # Asisste.Web
 
-Placeholder del futuro portal web moderno.
+Portal web moderno para reemplazar progresivamente el MVC legado.
 
-## Objetivo
+## Stack base
 
-Reemplazar progresivamente el portal ASP.NET MVC legado con una solución web alineada al nuevo monorepo.
+- React
+- TypeScript
+- Vite
 
-## Fuente principal de migración
+## Slice implementado
 
-- `archive/legacy-aspnet-mvc-monolith/Web.Marcacion`
+- Catálogo de perfiles consumiendo `GET/POST/PUT/DELETE /api/profiles`
+- Reemplazo inicial de `Views/Maestros/Perfil.cshtml`
+- Reemplazo de `js/Perfil/Perfil.js` mediante hook y servicio HTTP tipado
 
-## Estado
+## Arranque local
 
-Todavía no implementado. La carpeta queda creada para reservar el espacio de la migración del portal.
+1. `npm install`
+2. `npm run dev`
+
+Opcional:
+
+- definir `VITE_API_BASE_URL` si la API no corre en `http://localhost:5075`

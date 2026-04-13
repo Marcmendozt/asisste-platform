@@ -7,3 +7,4 @@ TestResults/
 *.suo
 *.userosscache
 *.sln.docstates
+artifacts/qa/
